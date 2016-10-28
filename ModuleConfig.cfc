@@ -5,12 +5,18 @@ component {
 	this.author 			= "Eric Peterson";
 	this.webURL 			= "https://github.com/elpete/redirectBack";
 	this.description 		= "Caches the last request in the flash scope to give easy redirects back";
-	this.version			= "1.0.0";
+	this.version			= "1.0.1";
 
 	function configure() {
 		settings = {
 			key = "last_url",
 		};
+
+        interceptors = [{
+            class = "#moduleMapping#/interceptors/RedirectBack",
+            name = "RedirectBack",
+            properties = {}
+        }];
 	}
 
 	function onLoad() {
@@ -30,13 +36,5 @@ component {
             } )
         );
     }
-
-	function postProcess( event, interceptData, buffer, rc, prc ) {
-		var flash = wirebox.getInstance( dsl = "coldbox:flash" );
-	    flash.put(
-	    	settings.key,
-	    	event.isSES() ? event.getCurrentRoutedUrl() : event.getCurrentEvent()
-	    );
-	}
 
 }
