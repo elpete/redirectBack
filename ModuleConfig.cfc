@@ -9,7 +9,7 @@ component {
 
 	function configure() {
 		settings = {
-			key = "last_url",
+			key = "last_url"
 		};
 
         interceptors = [{
