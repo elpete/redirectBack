@@ -9,7 +9,8 @@ component {
 
 	function configure() {
 		settings = {
-			key = "last_url"
+            "key" = "last_url",
+            "includeAjax" = false
 		};
 
         interceptors = [{
@@ -32,7 +33,7 @@ component {
         controller.setSetting(
             "applicationHelper",
             arrayFilter( controller.getSetting( "applicationHelper" ), function( helper ) {
-                return helper != "#moduleMapping#/helpers/RedirectBackHelpers.cfm"; 
+                return helper != "#moduleMapping#/helpers/RedirectBackHelpers.cfm";
             } )
         );
     }

@@ -6,7 +6,7 @@ component extends="coldbox.system.Interceptor" {
         var flash = wirebox.getInstance( dsl = "coldbox:flash" );
         var moduleSettings = wirebox.getInstance( dsl = "coldbox:moduleSettings:redirectBack" );
 
-        if ( ! event.isAjax() ) {
+        if ( moduleSettings.includeAjax || !event.isAjax() ) {
             flash.put(
                 name = moduleSettings.key,
                 value = event.isSES() ? event.getCurrentRoutedUrl() : event.getCurrentEvent(),
@@ -14,7 +14,6 @@ component extends="coldbox.system.Interceptor" {
             );
         }
 
-        
     }
 
 }
