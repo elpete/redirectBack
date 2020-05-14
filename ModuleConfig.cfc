@@ -10,7 +10,8 @@ component {
 	function configure() {
 		settings = {
             "key" = "last_url",
-            "includeAjax" = false
+            "includeAjax" = false,
+            "includeUDF" = javacast( "null", "" )
 		};
 
         interceptors = [{
