@@ -18,7 +18,11 @@ component extends="coldbox.system.Interceptor" {
         if ( shouldInclude ) {
             flash.put(
                 name = settings.key,
-                value = event.isSES() ? event.getCurrentRoutedUrl() : event.getCurrentEvent(),
+                value = {
+					"type": event.isSES() ? "URI" : "EVENT",
+					"event": event.isSES() ? "/" & event.getCurrentRoutedUrl() : event.getCurrentEvent(),
+					"queryString": decodeFromURL( CGI.QUERY_STRING )
+				},
                 autoPurge = false
             );
         }
