@@ -21,7 +21,7 @@ component extends="coldbox.system.Interceptor" {
                 value = {
 					"type": event.isSES() ? "URI" : "EVENT",
 					"event": event.isSES() ? "/" & event.getCurrentRoutedUrl() : event.getCurrentEvent(),
-					"queryString": decodeFromURL( CGI.QUERY_STRING )
+					"queryString": urlDecode( CGI.QUERY_STRING )
 				},
                 autoPurge = false
             );
