@@ -1,8 +1,8 @@
 {
     "name":"redirectBack",
-    "version":"2.0.0",
+    "version":"2.0.1",
     "author":"Eric Peterson",
-    "location":"forgeboxStorage",
+    "location":"elpete/redirectBack#v2.0.1",
     "homepage":"https://github.com/elpete/redirectBack",
     "documentation":"https://github.com/elpete/redirectBack",
     "repository":{
