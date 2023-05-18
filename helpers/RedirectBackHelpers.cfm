@@ -3,7 +3,7 @@
     function redirectBack() {
         var moduleSettings = wirebox.getInstance( dsl = "coldbox:moduleSettings:redirectBack" );
         var flash = wirebox.getInstance( dsl = "coldbox:flash" );
-        var lastEventInfo = flash.get( moduleSettings.key, "" );
+        var lastEventInfo = flash.get( moduleSettings.key, { "type": "EVENT", "event": "", "queryString": "" } );
         if ( lastEventInfo.type == "EVENT" ) {
             arguments.event = lastEventInfo.event;
         } else {
